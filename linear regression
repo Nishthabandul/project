@@ -44,3 +44,4 @@ print("Indices of anomalies:", anomalies[0])
 print("Anomalous X values:", X[anomalies])
 print("Anomalous y values:", y[anomalies])
 
+

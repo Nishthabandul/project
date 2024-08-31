@@ -1,0 +1,46 @@
+//linear regression under supervised learning
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from scipy import stats
+
+# Sample Data
+np.random.seed(42)
+X = np.random.rand(100, 1) * 10
+y = 2.5 * X + np.random.randn(100, 1) * 2
+
+# Introducing some anomalies
+X[95:100] = X[95:100] + 15
+y[95:100] = y[95:100] + 50
+
+# Linear Regression Model
+model = LinearRegression()
+model.fit(X, y)
+y_pred = model.predict(X)
+
+# Residuals
+residuals = y - y_pred
+
+# Z-score for Anomaly Detection
+z_scores = np.abs(stats.zscore(residuals))
+
+# Set a threshold for anomalies
+threshold = 2.0
+anomalies = np.where(z_scores > threshold)
+
+# Plotting
+plt.scatter(X, y, label='Data points')
+plt.plot(X, y_pred, color='red', label='Regression line')
+plt.scatter(X[anomalies], y[anomalies], color='orange', label='Anomalies', edgecolor='black')
+plt.legend()
+plt.xlabel('X')
+plt.ylabel('y')
+plt.title('Anomaly Detection in Linear Regression')
+plt.show()
+
+# Print the indices and values of anomalies
+print("Indices of anomalies:", anomalies[0])
+print("Anomalous X values:", X[anomalies])
+print("Anomalous y values:", y[anomalies])
+

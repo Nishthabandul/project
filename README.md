@@ -14,38 +14,46 @@ Here’s a snapshot of the anomaly detection techniques you can explore:
 
 ### 🏷️ Supervised Learning
 
-1. **Classification-Based Anomaly Detection**:
-   - **Support Vector Machines (SVM)**: Train a classifier to differentiate between normal and anomalous data.
-   - **Random Forest Classifiers**: Use ensemble learning to classify data and detect anomalies.
-   - **Gradient Boosting Machines (GBM)**: Employ boosting techniques to improve anomaly detection performance.
+1. **Linear regression**:
+   Anomaly detection in linear regression can be approached by identifying data points that significantly deviate from the predicted regression line. This can be done using statistical measures like residuals or by applying techniques such as the Z-score or Cook's distance.
+   
+2. **Polynomial Regression**:
+  Anomaly detection in polynomial regression can be performed similarly to linear regression, with the main difference being that the model now fits a polynomial curve rather than a straight line. The anomalies are detected by identifying points with large residuals or using statistical measures like Z-scores.
 
-2. **Regression-Based Methods**:
-   - **Robust Regression**: Identify anomalies by analyzing deviations from regression models.
-   - **Quantile Regression**: Detect outliers by modeling the conditional quantiles of the response variable.
+3. **Decision Tree**-
+Decision trees are not typically used directly for anomaly detection, but they can be applied by analysing the residuals of the model's predictions or by using Isolation Forests, which are a tree-based method specifically designed for anomaly detection.
+
+4.** 3. K-Nearest Neighbour (KNN)**-
+Anomaly detection using the K-nearest neighbours (KNN) algorithm can be done by identifying points that have a large average distance to their nearest neighbours. These points are considered anomalies because they are far from other points in the dataset.
+
+5.**Gaussian Naïve Bayesian**-
+Anomaly detection using a Naive Bayes classifier isn't a typical approach because Naive Bayes is mainly used for classification tasks. However, we can adapt it for anomaly detection by modeling the likelihood of the data and flagging points that have a low probability as anomalies.
+Example Code: Anomaly Detection Using Gaussian Naive Bayes
+This approach involves calculating the probability of each data point under the Naive Bayes model and treating low-probability points as anomalies.
+
+
+
+   
 
 ### 🔍 Unsupervised Learning
 
-1. **Distance-Based Methods**:
-   - **k-Nearest Neighbors (k-NN)**: Detect anomalies based on the distance to nearest neighbors.
-   - **DBSCAN (Density-Based Spatial Clustering of Applications with Noise)**: Cluster data and identify outliers as points not fitting into any cluster.
+1.**K-means clustering**-
+Anomaly detection using K-means clustering involves identifying points that are far from their respective cluster centroids. These points can be considered anomalies because they don't fit well into any of the clusters.
 
-2. **Model-Based Methods**:
-   - **Isolation Forest**: A tree-based model that isolates observations to detect anomalies.
-   - **Local Outlier Factor (LOF)**: Measure the local density deviation of data points to identify outliers.
-   - **One-Class SVM**: Find a decision boundary around normal data to detect anomalies.
+
+2.** FP GROWTH**-
+Frequent Pattern (FP) Growth is an algorithm primarily used for mining frequent itemsets in a dataset, which is typically used in association rule mining. However, anomaly detection with FP-Growth isn't straightforward because FP-Growth isn't inherently designed for anomaly detection. Instead, you can adapt the concept by identifying transactions or data points that do not contain frequent patterns, treating them as anomalies.
+
 
 3. **Dimensionality Reduction Techniques**:
    - **Principal Component Analysis (PCA)**: Reduce dimensionality and identify anomalies based on reconstruction error.
    - **t-Distributed Stochastic Neighbor Embedding (t-SNE)**: Visualize high-dimensional data and detect anomalies through clustering.
 
-4. **Deep Learning Approaches**:
-   - **Autoencoders**: Neural networks trained to reconstruct input data, detecting anomalies based on reconstruction error.
-   - **Variational Autoencoders (VAE)**: An advanced autoencoder model that captures complex distributions for anomaly detection.
-   - **Generative Adversarial Networks (GANs)**: Use adversarial learning to detect anomalies by generating and comparing data.
+4. **HIDDEN MARKOV MODEL**-
+Anomaly detection using a Hidden Markov Model (HMM) can be done by identifying sequences of observations that have low probabilities under the model. HMMs are typically used for modelling sequences of data, so this approach is particularly useful in time series anomaly detection.
+
 
 ## 🚀 Getting Started
-
-Ready to dive in? Here’s how you can get started:
 
 1. **Clone the Repository**:
    ```bash
@@ -69,7 +77,7 @@ Ready to dive in? Here’s how you can get started:
 
 ## 📊 Dataset
 
-To use the provided techniques, you can work with our sample datasets or plug in your own data. Ensure your dataset is in CSV format and matches the structure required by the examples.
+To use the provided techniques, you can work with our sample datasets or plug in your own data or you can create your own artificial dataset. Ensure your dataset is in CSV format and matches the structure required by the examples.
 
 ## 📄 Documentation
 
@@ -79,23 +87,3 @@ Each technique is documented with:
 - **Implementation Details**: How the method is implemented in code.
 - **Usage Examples**: Sample code and real-world use cases.
 
-## 🤝 Contributing
-
-We welcome contributions from the community! If you have ideas for new techniques, improvements, or bug fixes, please follow these steps:
-
-1. Fork the repository and create a new branch.
-2. Make your changes and commit with clear messages.
-3. Push your changes and open a pull request.
-
-## 📬 Contact
-
-Have questions, suggestions, or feedback? Feel free to reach out:
-
-- [Email](mailto:your.email@example.com)
-- [GitHub Discussions](https://github.com/yourusername/anomaly-detection/discussions)
-
----
-
-Uncover the hidden patterns and anomalies in your data with us. Happy detecting! 🕵️‍♀️🔍
-
-#MachineLearning #AnomalyDetection #DataScience #SupervisedLearning #UnsupervisedLearning #DeepLearning #GitHubProjects
